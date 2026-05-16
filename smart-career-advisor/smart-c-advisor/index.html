@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Smart Career Advisor</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+
+<body>
+    <script>
+        if (localStorage.getItem('isLoggedIn') !== 'true') {
+            window.location.href = 'login.html';
+        }
+    </script>
+  
+ <!-- Navigation Bar -->
+    <nav class="navbar">
+        <div class="logo">Smart Career Advisor</div>
+        <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="find.html">Find a Career</a></li>
+            <li><a href="career.html">Career Insights</a></li>
+            <li><a href="feedback.html">feedback</a></li>
+        </ul>
+        <div class="nav-actions">
+            <span id="userGreeting"></span>
+            <button id="logoutBtn" class="btn secondary">Logout</button>
+        </div>
+    </nav>
+
+    <header class="spacer"></header>
+
+     <!-- Home Section -->
+    <section id="home" class="home">
+        <div class="content">
+            <h2 class="animate-in">Welcome to Smart Career Advisor</h2>
+            <p class="animate-in delay-1">Discover career suggestions and job vacancies tailored for you.</p>
+            <a href="find.html" class="btn primary animate-in delay-2">Start Your Journey <i class="fas fa-arrow-right"></i></a>
+        </div>
+    </section>
+ 
+
+  
+    <!-- Main JS -->
+    <script src="script.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Working Dashboard | Smart Career Advisor</title>
+    <link rel="stylesheet" href="admin.css">
+</head>
+<body>
+    <nav class="admin-nav">
+        <div class="admin-logo">Smart Career Advisor - Working Dashboard</div>
+        <button id="logoutBtn" class="logout-btn">Logout</button>
+    </nav>
+
+    <div class="admin-container">
+        <div class="stats-grid">
+            <div class="stat-card">
+                <h3>Feedback Count</h3>
+                <div class="stat-number" id="totalFeedback">0</div>
+            </div>
+        </div>
+
+        <div class="admin-box">
+            <h2>User Feedback</h2>
+            <button id="refreshFeedbackBtn" class="refresh-btn">Refresh Feedback</button>
+            <div class="table-wrapper">
+                <table id="feedbackTable">
+                    <thead>
+                        <tr>
+                            <th>User</th>
+                            <th>Email</th>
+                            <th>Comments</th>
+                            <th>Rating</th>
+                            <th>Delete</th>
+                        </tr>
+                    </thead>
+                    <tbody></tbody>
+                </table>
+            </div>
+        </div>
+
+        <div class="admin-box">
+            <div class="section-header">
+                <h2>Recent Login Activity</h2>
+                <button id="refreshLoginActivityBtn" class="refresh-btn">Refresh Activity</button>
+            </div>
+            <p id="loginActivityStatus" class="status-text"></p>
+            <div class="table-wrapper">
+                <table id="loginActivityTable">
+                    <thead>
+                        <tr>
+                            <th>Username</th>
+                            <th>Action</th>
+                            <th>Timestamp</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td colspan="3">Loading recent activity...</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <script src="admin.js"></script>
+</body>
+</html>

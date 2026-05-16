@@ -1,0 +1,360 @@
+    
+        <div class="logo">Smart Career Advisor</div>
+   
+   
+   <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="find.html">Find a Career</a></li>
+            <li><a href="career.html">Career Insights</a></li>
+            <li><a href="feedback.html">feedback</a></li>
+        </ul>
+  
+  
+  
+  
+  <!-- Career Insights Section -->
+    <section id="insights" class="section insights-section">
+        <h2>Career Insights</h2>
+        <h3>Explore detailed information about career paths</h3>
+        <div class="container" id="career-list"></div>
+
+        <script>
+         
+ 
+const careers = [
+  {
+    title: "Software Engineer",
+    overview: "Develop and maintain computer software applications.",
+    salary: "₹5–12 LPA",
+    growth: "High – in demand across all industries",
+    companies: "TCS, Infosys, Google, Microsoft, Wipro",
+    learn: "Coursera, Udemy, freeCodeCamp"
+  },
+  {
+    title: "Data Scientist",
+    overview: "Analyze data and build predictive models to aid business decisions.",
+    salary: "₹8–20 LPA",
+    growth: "Very High – data-driven economy",
+    companies: "Amazon, Accenture, Deloitte, IBM",
+    learn: "Kaggle, Coursera, edX"
+  },
+  {
+    title: "Web Developer",
+    overview: "Design, build, and maintain websites and web applications.",
+    salary: "₹3–10 LPA",
+    growth: "High – growing internet services sector",
+    companies: "Infosys, TCS, Zoho, Wipro",
+    learn: "freeCodeCamp, Udemy, YouTube"
+  },
+  {
+    title: "UI/UX Designer",
+    overview: "Design intuitive user interfaces and user experiences.",
+    salary: "₹4–12 LPA",
+    growth: "High – user-focused product design boom",
+    companies: "Adobe, Google, Swiggy, Zomato",
+    learn: "Coursera, Interaction Design Foundation, Figma tutorials"
+  },
+  {
+    title: "Cybersecurity Analyst",
+    overview: "Protect systems and data from cyber threats and vulnerabilities.",
+    salary: "₹6–15 LPA",
+    growth: "Very High – rising cybersecurity needs",
+    companies: "Cisco, IBM, Palo Alto Networks, Infosys",
+    learn: "TryHackMe, Cybrary, Coursera"
+  },
+  {
+    title: "Cloud Engineer",
+    overview: "Manage cloud infrastructure and deploy scalable applications.",
+    salary: "₹7–18 LPA",
+    growth: "Very High – cloud computing expansion",
+    companies: "AWS, Google Cloud, Azure, Oracle",
+    learn: "AWS Training, Coursera, A Cloud Guru"
+  },
+  {
+    title: "Machine Learning Engineer",
+    overview: "Develop AI and machine learning models for automation and insights.",
+    salary: "₹8–22 LPA",
+    growth: "High – AI adoption increasing rapidly",
+    companies: "NVIDIA, Google, Meta, Amazon",
+    learn: "Coursera (Andrew Ng), Kaggle, Udemy"
+  },
+  {
+    title: "DevOps Engineer",
+    overview: "Integrate development and operations processes using automation.",
+    salary: "₹6–16 LPA",
+    growth: "High – needed for fast-paced deployment",
+    companies: "IBM, Accenture, Infosys, TCS",
+    learn: "Linux Academy, Coursera, YouTube"
+  },
+  {
+    title: "Database Administrator",
+    overview: "Maintain and secure databases ensuring performance and availability.",
+    salary: "₹5–12 LPA",
+    growth: "Medium – essential IT backbone role",
+    companies: "Oracle, IBM, Infosys, Wipro",
+    learn: "Udemy, Oracle University, Coursera"
+  },
+  {
+    title: "Mobile App Developer",
+    overview: "Design and develop mobile apps for Android and iOS platforms.",
+    salary: "₹4–12 LPA",
+    growth: "High – booming app market",
+    companies: "Google, Zoho, Swiggy, Byju’s",
+    learn: "Udemy, Android Developers, Coursera"
+  },
+  {
+    title: "AI Engineer",
+    overview: "Build and deploy artificial intelligence models and systems.",
+    salary: "₹10–25 LPA",
+    growth: "Very High – emerging tech field",
+    companies: "OpenAI, Microsoft, Google, Meta",
+    learn: "DeepLearning.AI, Coursera, edX"
+  },
+  {
+    title: "Blockchain Developer",
+    overview: "Develop decentralized applications using blockchain technologies.",
+    salary: "₹7–20 LPA",
+    growth: "High – fintech and Web3 expansion",
+    companies: "Polygon, ConsenSys, IBM, Infosys",
+    learn: "CryptoZombies, Udemy, Coursera"
+  },
+  {
+    title: "Full Stack Developer",
+    overview: "Handle both frontend and backend development of applications.",
+    salary: "₹5–15 LPA",
+    growth: "High – multi-skill developers in demand",
+    companies: "Zoho, Infosys, TCS, Amazon",
+    learn: "freeCodeCamp, Udemy, Coursera"
+  },
+  {
+    title: "Network Engineer",
+    overview: "Design and maintain network infrastructure for organizations.",
+    salary: "₹4–10 LPA",
+    growth: "Moderate – vital for IT connectivity",
+    companies: "Cisco, Airtel, HCL, Wipro",
+    learn: "Cisco Networking Academy, Coursera"
+  },
+  {
+    title: "Game Developer",
+    overview: "Develop interactive video games for various platforms.",
+    salary: "₹4–14 LPA",
+    growth: "High – gaming industry rising fast",
+    companies: "Ubisoft, EA, Rockstar, Nazara",
+    learn: "Unity Learn, Udemy, Coursera"
+  },
+  {
+    title: "System Administrator",
+    overview: "Manage IT systems, servers, and infrastructure operations.",
+    salary: "₹3–9 LPA",
+    growth: "Moderate – needed in all IT sectors",
+    companies: "Dell, HP, Infosys, IBM",
+    learn: "Linux Academy, Pluralsight, Coursera"
+  },
+  {
+    title: "IT Support Specialist",
+    overview: "Provide technical support and troubleshoot user issues.",
+    salary: "₹2.5–6 LPA",
+    growth: "Stable – required in all organizations",
+    companies: "Infosys, Tech Mahindra, IBM, Dell",
+    learn: "Google IT Support (Coursera), Udemy"
+  },
+  {
+    title: "Product Manager",
+    overview: "Oversee product lifecycle and coordinate development teams.",
+    salary: "₹10–25 LPA",
+    growth: "Very High – core business role",
+    companies: "Google, Microsoft, Swiggy, Flipkart",
+    learn: "Coursera, Product School, Udemy"
+  },
+  {
+    title: "AI Research Scientist",
+    overview: "Conduct research on artificial intelligence models and algorithms.",
+    salary: "₹12–30 LPA",
+    growth: "High – innovation-driven field",
+    companies: "Google DeepMind, OpenAI, IBM Research",
+    learn: "MIT OpenCourseWare, Coursera, edX"
+  },
+  {
+    title: "Data Analyst",
+    overview: "Interpret and visualize data to support decision-making.",
+    salary: "₹4–10 LPA",
+    growth: "High – businesses rely on data insights",
+    companies: "Deloitte, KPMG, TCS, EY",
+    learn: "Google Data Analytics (Coursera), Udemy"
+  },
+  {
+    title: "Business Analyst",
+    overview: "Bridge gap between business needs and technical solutions.",
+    salary: "₹5–12 LPA",
+    growth: "High – needed in all industries",
+    companies: "Accenture, Infosys, Deloitte, IBM",
+    learn: "Coursera, edX, Udemy"
+  },
+  {
+    title: "Game Designer",
+    overview: "Create gameplay mechanics and interactive storytelling.",
+    salary: "₹4–12 LPA",
+    growth: "High – creative tech role",
+    companies: "Ubisoft, EA, Rockstar, Gameloft",
+    learn: "Udemy, Coursera, GameDev.tv"
+  },
+  {
+    title: "Digital Marketer",
+    overview: "Promote brands and products using online marketing tools.",
+    salary: "₹3–10 LPA",
+    growth: "Very High – digital presence demand",
+    companies: "Google, Meta, Byju’s, Amazon",
+    learn: "Google Digital Garage, Coursera, Udemy"
+  },
+  {
+    title: "SEO Specialist",
+    overview: "Optimize websites to rank higher on search engines.",
+    salary: "₹3–8 LPA",
+    growth: "High – vital for digital marketing",
+    companies: "Moz, SEMrush, Freelancing, Agencies",
+    learn: "HubSpot Academy, Coursera, Udemy"
+  },
+  {
+    title: "Graphic Designer",
+    overview: "Create visual concepts and designs for digital and print media.",
+    salary: "₹2.5–7 LPA",
+    growth: "High – content creation boom",
+    companies: "Adobe, Canva, Design Studios",
+    learn: "Canva Design School, Udemy, Coursera"
+  },
+  {
+    title: "Content Writer",
+    overview: "Produce engaging written content for blogs and websites.",
+    salary: "₹2–6 LPA",
+    growth: "High – online media growth",
+    companies: "Media Houses, Freelancing, Agencies",
+    learn: "Grammarly Blog, Udemy, Coursera"
+  },
+  {
+    title: "Financial Analyst",
+    overview: "Analyze financial data for investment and business planning.",
+    salary: "₹5–15 LPA",
+    growth: "Moderate – stable finance career",
+    companies: "Goldman Sachs, Deloitte, JP Morgan",
+    learn: "Coursera, CFA Institute, Udemy"
+  },
+  {
+    title: "HR Manager",
+    overview: "Oversee recruitment, employee relations, and HR operations.",
+    salary: "₹6–14 LPA",
+    growth: "Moderate – essential organizational role",
+    companies: "Infosys, Wipro, Deloitte, IBM",
+    learn: "Coursera, LinkedIn Learning, Udemy"
+  },
+  {
+    title: "Cloud Architect",
+    overview: "Design and manage cloud computing architecture for enterprises.",
+    salary: "₹12–30 LPA",
+    growth: "Very High – enterprise cloud migration",
+    companies: "AWS, Google Cloud, IBM, Microsoft",
+    learn: "AWS Academy, Coursera, A Cloud Guru"
+  },
+  {
+    title: "Automation Engineer",
+    overview: "Design automated systems for manufacturing and IT workflows.",
+    salary: "₹5–12 LPA",
+    growth: "High – automation demand increasing",
+    companies: "ABB, Siemens, Honeywell, TCS",
+    learn: "Udemy, Coursera, PLC courses"
+  },
+  {
+    title: "Robotics Engineer",
+    overview: "Design, build, and maintain robots and automation systems.",
+    salary: "₹6–18 LPA",
+    growth: "High – robotics in manufacturing",
+    companies: "ABB, Boston Dynamics, ISRO, Tata Motors",
+    learn: "edX, Udemy, Coursera"
+  },
+  {
+    title: "AR/VR Developer",
+    overview: "Create immersive augmented and virtual reality experiences.",
+    salary: "₹6–15 LPA",
+    growth: "High – metaverse & gaming expansion",
+    companies: "Meta, Unity, Google, Niantic",
+    learn: "Unity Learn, Coursera, Udemy"
+  },
+  {
+    title: "Ethical Hacker",
+    overview: "Identify and fix security vulnerabilities through testing.",
+    salary: "₹6–20 LPA",
+    growth: "High – ethical hacking awareness",
+    companies: "Cybersecurity firms, IBM, TCS",
+    learn: "CEH Certification, TryHackMe, Udemy"
+  },
+  {
+    title: "IT Project Manager",
+    overview: "Plan, execute, and oversee technology projects.",
+    salary: "₹8–20 LPA",
+    growth: "High – leadership in IT",
+    companies: "Infosys, Capgemini, TCS, Wipro",
+    learn: "PMI, Coursera, Udemy"
+  },
+  {
+    title: "Mechanical Engineer",
+    overview: "Design and develop mechanical systems and machinery.",
+    salary: "₹3–10 LPA",
+    growth: "Stable – manufacturing sector demand",
+    companies: "L&T, Tata Motors, Bosch, ISRO",
+    learn: "NPTEL, Coursera, edX"
+  },
+  {
+    title: "Electrical Engineer",
+    overview: "Work on electrical systems, power generation, and circuits.",
+    salary: "₹4–12 LPA",
+    growth: "Stable – core engineering role",
+    companies: "Siemens, NTPC, BHEL, ABB",
+    learn: "NPTEL, Coursera, edX"
+  },
+  {
+    title: "Civil Engineer",
+    overview: "Design and manage construction of buildings and infrastructure.",
+    salary: "₹3–9 LPA",
+    growth: "Moderate – infrastructure expansion",
+    companies: "L&T, Tata Projects, Shapoorji Pallonji",
+    learn: "NPTEL, Coursera, Skillshare"
+  },
+  {
+    title: "Biotechnologist",
+    overview: "Use biology and technology to develop medical and agricultural solutions.",
+    salary: "₹4–10 LPA",
+    growth: "High – bio innovation growing",
+    companies: "Biocon, Dr. Reddy’s, Serum Institute",
+    learn: "Coursera, edX, Khan Academy"
+  },
+  {
+    title: "AI Product Designer",
+    overview: "Design user experiences for AI-based applications.",
+    salary: "₹8–20 LPA",
+    growth: "High – merging AI with design",
+    companies: "Google, OpenAI, Meta, Adobe",
+    learn: "Interaction Design Foundation, Coursera"
+  }
+];
+
+const container = document.getElementById("career-list");
+careers.forEach(c => {
+  const div = document.createElement("div");
+  div.className = "career-card";
+  div.innerHTML = `
+    <h3>${c.title}</h3>
+    <p><strong>Overview:</strong> ${c.overview}</p>
+    <p><strong>Average Salary:</strong> ${c.salary}</p>
+    <p><strong>Career Growth:</strong> ${c.growth}</p>
+    <p><strong>Top Companies:</strong> ${c.companies}</p>
+    <p><strong>Where to Learn:</strong> ${c.learn}</p>
+  `;
+  container.appendChild(div);
+});
+</script>
+
+ 
+ </section>
+
+ <script src="script.js"></script>
+<link rel="stylesheet" href="style.css">

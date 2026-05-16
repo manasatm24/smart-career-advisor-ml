@@ -1,0 +1,42 @@
+[
+  {
+    "branch": "CSE",
+    "skills": ["Java", "Python", "AI/ML"],
+    "career": "Software Engineer"
+  },
+  {
+    "branch": "ECE",
+    "skills": ["C++", "Cloud Computing", "Cybersecurity"],
+    "career": "Network Engineer"
+  },
+  {
+    "branch": "EEE",
+    "skills": ["Power Systems", "Control Systems"],
+    "career": "Electrical Design Engineer"
+  },
+  {
+    "branch": "ME",
+    "skills": ["CAD", "Thermodynamics"],
+    "career": "Mechanical Design Engineer"
+  },
+  {
+    "branch": "BCA",
+    "skills": ["JavaScript", "HTML/CSS", "Web Development"],
+    "career": "Frontend Developer"
+  },
+  {
+    "branch": "BCA",
+    "skills": ["Python", "SQL", "App Development"],
+    "career": "Software Engineer"
+  },
+  {
+    "branch": "BSC",
+    "skills": ["Data Science", "Python", "SQL"],
+    "career": "Data Analyst"
+  },
+  {
+    "branch": "BSC",
+    "skills": ["Cloud Computing", "Java", "Python"],
+    "career": "Cloud Engineer"
+  }
+]
